@@ -17,6 +17,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    CGPoint point1 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point2 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point3 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point4 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point5 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point6 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point7 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point8 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point9 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    CGPoint point10 = CGPointMake(arc4random()%10+1, arc4random()%10+1);
+    
+    NSArray* pointsArray = [NSArray arrayWithObjects:
+                            [NSValue valueWithCGPoint:point1],
+                            [NSValue valueWithCGPoint:point2],
+                            [NSValue valueWithCGPoint:point3],
+                            [NSValue valueWithCGPoint:point4],
+                            [NSValue valueWithCGPoint:point5],
+                            [NSValue valueWithCGPoint:point6],
+                            [NSValue valueWithCGPoint:point7],
+                            [NSValue valueWithCGPoint:point8],
+                            [NSValue valueWithCGPoint:point9],
+                            [NSValue valueWithCGPoint:point10],nil];
+    
+    CGRect centeRect = CGRectMake(3, 3, 3, 3);
+    
+    for (NSValue* value in pointsArray) {
+        CGPoint p = [value CGPointValue];
+        
+        if (CGRectContainsPoint(centeRect, p)) {
+            NSLog(@"Point in rect: %@", NSStringFromCGPoint(p));
+        }else{
+            NSLog(@"Point are not in rect %@", NSStringFromCGPoint(p));
+        }
+    }
+    
+    
+    
+    
     return YES;
 }
 
